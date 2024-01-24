@@ -14,9 +14,9 @@ export default {
 </script>
 
 <template>
-    <header>
-        HEADER
-    </header>
+    <footer>
+        FOOTER
+    </footer>
 </template>
 
 <style lang="scss" scoped>

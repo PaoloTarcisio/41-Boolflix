@@ -1,13 +1,16 @@
 <script>
+import { store } from '../store';
+
 
 export default {
     data() {
         return {
+            store,
 
         };
     },
-    methods: {
-
+    props: {
+        searchText: String
     }
 }
 
@@ -15,9 +18,32 @@ export default {
 
 <template>
     <header>
-        HEADER
+        <form action="#">
+            <input v-model="store.searchText" type="text" placeholder="Inserisci il titolo del film...">
+            <button @click="$emit('performSearch')">CERCA</button>
+        </form>
+
     </header>
 </template>
 
 <style lang="scss" scoped>
+
+    header {
+        
+        form {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        form > * {
+            margin: 20px;
+            padding: 8px;
+        }
+
+        form input {
+            width: 20%;
+        }
+    }
+
 </style>

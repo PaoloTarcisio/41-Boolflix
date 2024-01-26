@@ -12,6 +12,7 @@ export default {
         original_title: String,
         original_language: String,
         vote_average: Number,
+        poster_path: String,
 
     },
     methods: {
@@ -38,6 +39,9 @@ export default {
 </script>
 
 <template>
+        <div>
+            <img :src="'https://image.tmdb.org/t/p/original' + poster_path" alt="non funziona">
+        </div>
         <div>
             <div>{{ title }}</div>
         </div>

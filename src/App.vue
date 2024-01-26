@@ -2,7 +2,6 @@
 
 import appHeader from './components/appHeader.vue';
 import appMain from './components/appMain.vue';
-import appFooter from './components/appFooter.vue';
 
 import axios from 'axios';
 import { store } from './store';
@@ -17,7 +16,6 @@ export default {
     components: {
         appHeader,
         appMain,
-        appFooter,
     },  
     methods: {
         search () {
@@ -58,7 +56,6 @@ export default {
 
     <appHeader @performSearch="search()"/>
     <appMain/>
-    <appFooter/>
 
 </template>
 

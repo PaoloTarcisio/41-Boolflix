@@ -70,6 +70,7 @@ export default {
             <ul>
                 <li v-for="(movie, i) in store.movies" :key="i">
                     <SingleElement
+                    :poster_path="movie.poster_path"
                     :title="movie.title"
                     :original_title="movie.original_title"
                     :original_language="movie.original_language"
@@ -85,6 +86,7 @@ export default {
             <ul>
                 <li v-for="(serie, i) in store.series" :key="i">
                     <SingleElement
+                    :poster_path="serie.poster_path"
                     :title="serie.name"
                     :original_title="serie.original_name"
                     :original_language="serie.original_language"

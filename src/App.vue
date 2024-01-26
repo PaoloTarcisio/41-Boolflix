@@ -3,6 +3,7 @@
 import appHeader from './components/appHeader.vue';
 import appMain from './components/appMain.vue';
 import appFooter from './components/appFooter.vue';
+
 import axios from 'axios';
 import { store } from './store';
 
@@ -16,7 +17,7 @@ export default {
     components: {
         appHeader,
         appMain,
-        appFooter
+        appFooter,
     },  
     methods: {
         search () {
@@ -30,6 +31,21 @@ export default {
                 .then ((response) => {
                     console.log (response.data);
                     this.store.movies = response.data.results;
+                });
+
+
+                // 
+
+            axios
+                .get ('https://api.themoviedb.org/3/search/tv', {
+                    params: {
+                        api_key: '29ad48fd7b0d25cd023cbbc78c52e7dc',
+                        query: this.store.searchText
+                    }
+                })
+                .then ((response) => {
+                    console.log (response.data);
+                    this.store.series = response.data.results;
                 });
         }        
     }

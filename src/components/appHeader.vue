@@ -20,7 +20,9 @@ export default {
     <header>
         <form action="#">
             <input v-model="store.searchText" type="text" placeholder="Inserisci il titolo del film o di una serie TV">
-            <button @click="$emit('performSearch')">CERCA</button>
+            <button @click="$emit('performSearch')">
+                CERCA
+            </button>
         </form>
 
     </header>

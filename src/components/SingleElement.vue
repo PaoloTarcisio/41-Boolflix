@@ -32,6 +32,16 @@ export default {
                 
             }
             return flagLink;
+        },
+    },
+    computed: {
+        roundNumber() {
+    
+            return Math.ceil(this.vote_average / 2);        
+    
+        },
+        poster(){
+            return 'https://image.tmdb.org/t/p/original' + this.poster_path;
         }
     }
 }
@@ -40,7 +50,7 @@ export default {
 
 <template>
         <div>
-            <img :src="'https://image.tmdb.org/t/p/original' + poster_path" alt="non funziona">
+            <img class="poster-img" :src="poster" :alt="title">
         </div>
         <div>
             <div>{{ title }}</div>
@@ -51,12 +61,25 @@ export default {
         <div>
             <div>{{ original_language }}</div>
         </div>
-        <div><img :src="getFlag(original_language)" alt=""></div>
+        <div><img :src="getFlag(original_language)" alt="Image Not Found"></div>
         <div>
-            <div>{{ vote_average }}</div>
+            <div> Voto Medio: {{ vote_average }}</div>
+        </div>
+        <div>
+            <div>Voto Arrotondato: {{ roundNumber }}</div>
+        </div>
+        <div>
+            <i v-for="i in roundNumber" class="fa-solid fa-star"></i>
+            <i v-for="i in (5 - roundNumber)" class="fa-regular fa-star"></i>
         </div>
 </template>
 
 
 <style lang="scss" scoped>
+
+    .poster-img {
+        width: 200px;
+        height: auto;
+    }
+
 </style>

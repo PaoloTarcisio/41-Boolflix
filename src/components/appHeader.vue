@@ -18,6 +18,7 @@ export default {
 
 <template>
     <header>
+        <h1>BOOLFLIX</h1>
         <form action="#">
             <input v-model="store.searchText" type="text" placeholder="Inserisci il titolo del film o di una serie TV">
             <button @click="$emit('performSearch')">
@@ -31,6 +32,9 @@ export default {
 <style lang="scss" scoped>
 
     header {
+
+        display: flex;
+        justify-content: space-between;
         
         form {
             display: flex;

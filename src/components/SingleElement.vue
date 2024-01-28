@@ -4,7 +4,7 @@ import { store } from '../store';
 export default {
     data() {
         return {
-            
+            miaClasse: "my-card"
         };
     },
     props: {
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <template>
+    <div class="my-card">
         <div>
             <img class="poster-img" :src="poster" :alt="title">
         </div>
@@ -72,6 +73,7 @@ export default {
             <i v-for="i in roundNumber" class="fa-solid fa-star"></i>
             <i v-for="i in (5 - roundNumber)" class="fa-regular fa-star"></i>
         </div>
+    </div>
 </template>
 
 
@@ -81,5 +83,23 @@ export default {
         width: 200px;
         height: auto;
     }
+
+    .my-card {
+
+        text-align: center;
+
+        :not(:first-child) {
+            display: none;
+        }
+
+        :hover {
+            :not(:first-child) {
+            display: block;
+
+        }
+        }
+    }
+
+
 
 </style>

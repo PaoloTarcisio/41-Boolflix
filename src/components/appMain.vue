@@ -8,6 +8,7 @@ export default {
     data() {
         return {
             store,
+            layoutClass: "my-layout"
         };
     },
     components:{
@@ -65,9 +66,9 @@ export default {
 
 <template>
     <main>
+        <h2>MOVIES</h2>
         <div>
-            <div>MOVIES</div>
-            <ul>
+            <ul class="my-layout">
                 <li v-for="(movie, i) in store.movies" :key="i">
                     <SingleElement
                     :poster_path="movie.poster_path"
@@ -76,14 +77,13 @@ export default {
                     :original_language="movie.original_language"
                     :vote_average="movie.vote_average"/>
 
-                        <hr>
                 </li>
             </ul>
         </div>
         <hr>
+        <h2>SERIES</h2>
         <div>
-            <div>SERIES</div>
-            <ul>
+            <ul class="my-layout">
                 <li v-for="(serie, i) in store.series" :key="i">
                     <SingleElement
                     :poster_path="serie.poster_path"
@@ -92,7 +92,6 @@ export default {
                     :original_language="serie.original_language"
                     :vote_average="serie.vote_average"/>
 
-                    <hr>
                 </li>
             </ul>
         </div>
@@ -100,4 +99,31 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+    main {
+        background-color: grey;
+        padding: 30px;
+
+        h2 {
+            color: white;
+            text-align: center;;
+        }
+    }
+    .my-layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+       
+
+        li{
+            margin: 20px auto;
+            width: calc(100% / 5);
+
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
 </style>
